@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <p:outputLabel id="lblCave" value="Clave"></p:outputLabel>
+                <p:inputText id="txtCave" value="#{beanIndex.clave}" ></p:inputText>
+                <br/>
+                <p:outputLabel id="lblNombre" value="Nombre"></p:outputLabel>
+                <p:inputText id="txtNombre" value="#{beanIndex.nombre}" ></p:inputText>
+                <br/>
+                <p:outputLabel id="lbldireccion" value="Direccion"></p:outputLabel>
+                <p:inputText id="txtDireccion" value="#{beanIndex.direccion}" ></p:inputText>
+                <br/>
+                <p:outputLabel id="lblTelefono" value="Telefono"></p:outputLabel>
+                <p:inputText id="txtTelefono" value="#{beanIndex.telefono}" ></p:inputText>
+                <p:commandButton actionListener="#{beanIndex.incrementar()}" value="Incrementar"></p:commandButton>
+            </h:form>
+
+            <h:form>
+                <h3>Creación de Empleado</h3>
+                <p:messages id="messages" closable="true" />
+
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="clave" value="Clave:" />
+                    <p:inputText id="clave" value="#{empleadosBean.empleado.clave}" required="true" />
+
+                    <h:outputLabel for="nombre" value="Nombre:" />
+                    <p:inputText id="nombre" value="#{empleadosBean.empleado.nombre}" required="true" />
+
+                    <h:outputLabel for="telefono" value="Teléfono:" />
+                    <p:inputText id="telefono" value="#{empleadosBean.empleado.telefono}" required="true" />
+
+                    <h:outputLabel for="direccion" value="Dirección:" />
+                    <p:inputText id="direccion" value="#{empleadosBean.empleado.direccion}" required="true" />
+                </h:panelGrid>
+
+                <p:commandButton value="Crear Empleado" action="#{empleadosBean.crearEmpleado}" update="messages" />
+            </h:form>
+
+            <h1>Listado de Empleados</h1>
+            <h:dataTable value="#{empleadosBean.listar()}" var="empleado">
+                <h:column>
+                    <f:facet name="header">Clave</f:facet>
+                        #{empleado.clave}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                        #{empleado.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Dirección</f:facet>
+                        #{empleado.direccion}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Teléfono</f:facet>
+                        #{empleado.telefono}
+                </h:column>
+            </h:dataTable>
+        </f:view>
+    </h:body>
+</html>
+
