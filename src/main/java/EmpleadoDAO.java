@@ -21,6 +21,7 @@ public class EmpleadoDAO implements Serializable{
     private Empleado p = new Empleado();
     private Statement stm;
     PreparedStatement ps;
+    
 
     public List listar() {
         ArrayList<Empleado> list = new ArrayList<>();

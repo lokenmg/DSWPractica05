@@ -3,6 +3,6 @@
 <Resource auth="Container" driverClassName="org.postgresql.Driver" logAbandoned="true" 
               maxActive="10" maxIdle="5" maxWait="20000" name="jdbc/basePostgresql" 
               password="postgres" removeAbandoned="true" removeAbandonedTimeout="20" 
-              type="javax.sql.DataSource" url="jdbc:postgresql://172.17.0.2:5432/mydb" username="postgres"/>
+              type="javax.sql.DataSource" url="jdbc:postgresql://172.17.0.3:5432/mydb" username="postgres"/>
 
 </Context>
